@@ -1,0 +1,14 @@
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.pagetitle {
+    text-align: center;
+    padding-top: 10px;  
+}
