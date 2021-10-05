@@ -10,6 +10,7 @@ STATUS = (
 class NotePost(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    subject = models.CharField(max_length=200, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="note_posts")
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

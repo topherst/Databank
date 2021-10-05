@@ -1,4 +1,15 @@
 from django.shortcuts import render
+from django.views import generic
+
+from .models import NotePost
+
+class NotePostList(generic.ListView):
+    queryset = NotePost.objects.filter(status=1).order_by('-created_on')
+    template_name = "notes.html"
+
+class NotePostDetail(generic.DetailView):
+    model = NotePost
+    template_name = "notepost_detail.html"
 
 def home(request):
     context = {}
@@ -12,18 +23,3 @@ def about(request):
     context = {}
     return render(request, 'pages/about.html', context)
 
-def cs(request):
-    context = {}
-    return render(request, 'pages/cs.html', context)
-
-def history(request):
-    context = {}
-    return render(request, 'pages/history.html', context)
-
-def politics(request):
-    context = {}
-    return render(request, 'pages/politics.html', context)
-
-def philosophy(request):
-    context = {}
-    return render(request, 'pages/philosophy.html', context)
