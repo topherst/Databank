@@ -1,5 +1,5 @@
 body{
-	background-color: hsl(0, 0%, 98%);
+	background-color: #99a0ad;
     
 }
 
@@ -24,7 +24,7 @@ main {
 }
 
 .box-element{
-	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	box-shadow:#aab1bf 0 0 16px;
 	background-color: #fff;
 	border-radius: 4px;
 	padding: 10px;
