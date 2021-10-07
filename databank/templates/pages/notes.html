@@ -5,44 +5,52 @@
 
 {% block content %}
 
-<div class="pagetitle">
-    <h3>Notes</h3>
-</div>
-<hr>
-
-<div class="row">
-    <div class="col-lg-3">
-        <div class="box-element category" style="text-align:center">
-            <h6><strong>Computer Science</strong></h6>
-            <hr>
-            <a class="btn btn-primary" href="{% url 'cs' %}" role="button">Go</a>
-        </div>
-    </div>
-
-    <div class="col-lg-3">
-        <div class="box-element category" style="text-align:center">
-            <h6><strong>History</strong></h6>
-            <hr>
-            <a class="btn btn-primary" href="{% url 'history' %}" role="button">Go</a>
-        </div>
-    </div>
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
     
-    <div class="col-lg-3">
-        <div class="box-element category" style="text-align:center">
-            <h6><strong>Politics</strong></h6>
-            <hr>
-            <a class="btn btn-primary" href="{% url 'politics' %}" role="button">Go</a>
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+        text-align: center;
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h2 class=" site-heading my-4 mt-3 text-white"> Notes </h2>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="col-lg-3">
-        <div class="box-element category" style="text-align:center">
-            <h6><strong>Philosophy</strong></h6>
-            <hr>
-            <a class="btn btn-primary" href="{% url 'politics' %}" role="button">Go</a>    
+</header>
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 mx-auto">
+            {% for post in notepost_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.subject }} | {{ post.created_on}} </p>
+                    <p class="card-text">{{post.content|slice:":100" }}</p>
+                    <a href="{% url 'notepost_detail' post.slug  %}" class="btn btn-primary">Read&rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+      
     </div>
-
 </div>
 
 {% endblock content %}
